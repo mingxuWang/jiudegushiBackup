@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创业大PK，等你来参加</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, width=device-width"/>
+    <link rel="stylesheet" type="text/css" href="src/main.css">
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div style="display:none">
+        <img src="src/img/pk.jpg">
+    </div>
+    <div id="index">
+        <img class="pk" width='80%' src="src/img/pk.png">
+        <img class='circle animated pulse infinite' width='80%' src="src/img/circle.png">
+        <img class='flowers animated flash infinite' width='100%'src="src/img/flowers.png">
+        <img class="line" width="100%" src="src/img/line.png">
+        <img class=" begin animated rubberBand infinite" width="100%" src="src/img/answer.png" onclick="begin()">
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+
+
+
+    <div class="item"style="display:none">
+        <div class="question animated bounceIn ">
+            <div class="question-content">
+                1、辞职创业开店卖衣服,怎么样才能把宽大舒适的试衣间最省钱的宣传出去?
+            </div>
+        </div>
+        <img class='animated rubberBand sheep' width='20%' src="src/img/sheep.png">
+
+        <div class="items-body">
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>A</div>
+                <div>游街</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>B</div>
+                <div>电视广告</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>C</div>
+                <div>朋友圈转发送试用</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>D</div>
+                <div>大街发传单</div>
+            </div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="item" style="display:none">
+        <div class="question animated rotateIn">
+            <div class="question-content">
+                2、如果无心急需100W来创业.怎么才能最快拿到? 
+            </div>
+        </div>
+
+        <img class='animated rubberBand cow' width='28%' src="src/img/cow.png">
+
+        <div class="items-body">
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>A</div>
+                <div>捉鬼</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>B</div>
+                <div>挖顾大人的金子</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>C</div>
+                <div>卖肾</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>D</div>
+                <div>仨都对</div>
+            </div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="item" style="display:none">
+        <div class="question animated lightSpeedIn">
+            <div class="question-content">
+                3、计划今年结婚的张家口青年小张,突然告知父母不能结婚了,这是为什么?
+            </div>
+        </div>
+
+        <img class='animated rubberBand sheep' width='20%' src="src/img/lion.png">
+
+        <div class="items-body">
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>A</div>
+                <div>出柜了</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>B</div>
+                <div>冬奥来 房价涨</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>C</div>
+                <div>分手了</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>D</div>
+                <div>准备创业</div>
+            </div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="item" style="display:none">
+        <div class="question animated flip">
+            <div class="question-content">
+                4、怎样才能周末放假2天半?对了,是创业公司.
+            </div>
+        </div>
+
+        <img class='animated rubberBand cow' width='20%' src="src/img/xie.png">
+
+        <div class="items-body">
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>A</div>
+                <div>辞职</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>B</div>
+                <div>多加班</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>C</div>
+                <div>然并卵</div>
+            </div>
+            <div class="items animated tada infinite" onclick="bye(this)">
+                <div>D</div>
+                <div>有假就 不错了</div>
+            </div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="item" style="display:none">
+        <div class="question animated slideInUp">
+            <div class="question-content">
+                5、苹果6s快要发布了,还剩一个肾的大学生小李怎样才能满足女朋友?
+            </div>
+        </div>
+
+        <img class='animated rubberBand sheep' width='28%' src="src/img/nv.png">
+
+        <div class="items-body">
+            <div class="items buttonA animated tada infinite" value='a' onclick="bye(this)">
+                <div>A</div>
+                <div>兼职赚钱</div>
+            </div>
+            <div class="items buttonB animated tada infinite" value='b' onclick="bye(this)">
+                <div>B</div>
+                <div>分手</div>
+            </div>
+            <div class="items buttonC animated tada infinite" value='c' onclick="bye(this)">
+                <div>C</div>
+                <div>补肾</div>
+            </div>
+            <div class="items buttonD animated tada infinite" value='d' onclick="bye(this)">
+                <div>D</div>
+                <div>在门客学习创业</div>
+            </div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="sum" style="display:none" value='0'>
+        <div class="fenxiang animated flash infinite">快去分享给朋友吧！↑</div>
+        <div id="sum_exp">
+            <div class="learn">你还在想兼职？？别人都在门客里面学习创业了！快下载门客来学习创业！</div>
+            <div class="des  animated infinite pulse">快来围观创业者和创业导师</div>
+            <div class="button a" onclick='next_menke(this)'>点击了解更多</div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="sum" style="display:none" value='1'>
+        <div class="fenxiang animated flash infinite">快去分享给朋友吧！↑</div>
+        <div id="sum_exp">
+            <div class="learn">女朋友不要也罢，有钱了还怕找不到女朋友？！快下载门客来学习创业！</div>
+            <div class="des  animated infinite pulse">快来围观创业者和创业导师</div>
+            <div class="button b" value='1' onclick='next_menke(this)'>点击了解更多</div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="sum" style="display:none" value='2'>
+        <div class="fenxiang animated flash infinite">快去分享给朋友吧！↑</div>
+        <div id="sum_exp">
+            <div class="learn">补肾有毛用，女朋友是想要个爱疯，满足不了就快下载门客来学习创业！</div>
+            <div class="des  animated infinite pulse">快来围观创业者和创业导师</div>
+            <div class="button c" value='2' onclick='next_menke(this)'>点击了解更多</div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="sum" style="display:none" value='3'>
+        <div class="fenxiang animated flash infinite">快去分享给朋友吧！↑</div>
+        <div id="sum_exp">
+            <div class="learn">骚年好悟性，快把这个好主意告诉其他小伙伴吧！</div>
+            <div class="des  animated infinite pulse">快来围观创业者和创业导师</div>
+            <div class="button d" value='3' onclick='next_menke(this)'>点击了解更多</div>
+        </div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+
+    <div class="menke" style="display:none">
+        <img class="logo animated rotateIn" width='60%' src="src/img/menke.png">
+        <div class="menke-title  animated zoomIn">门客</div>
+        <div class="menke-des">专注于提供创新产业链服务的创业O2O社交平台、衔接青年创业者和创业导师的交流学习平台.</div>
+        <div class="adv">
+            <div>来这里你将获得:</div>
+            <div>专家指导:&nbsp;千余位顶级导师为你提供创业服务</div>
+            <div>资源共享:&nbsp;海量众创空间和孵化器</div>
+        </div>
+        <div class="button" onclick='next_exp()'>点击了解更多</div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="menke" style="display:none">
+        <div class="menke-title  animated zoomIn">门客基金</div>
+        <div class="menke-des">由门客平台投资方——国内最大人民币基金中科招商集团发起的针对大学生创业的超级天使基金.</div>
+        <div class="adv">
+            <div>平台的优势:</div>
+            <div>规模宏大:&nbsp;超级天使基金规模超100亿元</div>
+            <div>创投基金:&nbsp;为优秀创业项目提供天使投资</div>
+        </div>
+        <div class="button" onclick='last_exp()'>点击了解更多</div>
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+
+    <div class="menke" style="display:none">
+        <img class="logo-erweima animated tada" width='40%' src="src/img/erweima.png">
+        <div class="menke-er">长按上方二维码关注门客公众微信,获取最新创业资讯和经验交流.</div>
+        <div class="menke-up">快去应用商店搜索<br><span class='menke-big'>“门客”</span><br>与青年创业者,创业导师一起学习交流.</div>
+
+        <div class='wei'>门客微信公众号：menke2015 </div>
+    </div>
+    <script>
+        function bye(bt){
+            var bye=document.getElementsByClassName('question-content');
+            var parent=bt.parentNode;
+            var items=document.getElementsByClassName('items-body');
+            var item=document.getElementsByClassName('item');
+            var sum=document.getElementsByClassName('sum');
+            var buttons = document.getElementsByClassName('buttons');
+            for(var n = 0;n<bye.length;n++){
+                if(parent===items[n]){
+                    item[n].style.cssText='display:none';
+                    if(n!=4){
+                        item[n+1].style.cssText='display:block';
+                    }
+                    else{
+                        if(bt.classList.contains('buttonA')){
+                            sum[0].style.cssText='display:block'
+                        }
+                        else if(bt.classList.contains('buttonB')){
+                            sum[1].style.cssText='display:block'
+                        }
+                        else if(bt.classList.contains('buttonC')){
+                            sum[2].style.cssText='display:block'
+                        }
+                        else{
+                            sum[3].style.cssText='display:block'
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        function begin(){
+            var index=document.getElementById('index');
+            var item=document.getElementsByClassName('item');
+            index.style.cssText='display:none';
+            item[0].style.cssText='display:block';
+        }
+        function next_menke(bt){
+            var sum=document.getElementsByClassName('sum');
+            if(bt.classList.contains('a')){
+                sum[0].style.cssText='display:none';
+            }
+            else if(bt.classList.contains('b')){
+                sum[1].style.cssText='display:none';
+            }
+            else if(bt.classList.contains('c')){
+                sum[2].style.cssText='display:none';
+            }
+            else{
+                sum[3].style.cssText='display:none';
+            }
+            
+            var menke=document.getElementsByClassName("menke");
+            menke[0].style.cssText='display:block';
+        }
+        function next_exp(){
+            var menke=document.getElementsByClassName("menke");
+            menke[0].style.cssText='display:none';
+            menke[1].style.cssText='display:block';
+        }
+        function last_exp(){
+            var menke=document.getElementsByClassName("menke");
+            menke[1].style.cssText='display:none';
+            menke[2].style.cssText='display:block';
+        }
+    </script>
+</body>
+</html>

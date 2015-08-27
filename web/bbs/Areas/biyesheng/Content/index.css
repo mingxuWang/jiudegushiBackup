@@ -1,0 +1,7 @@
+﻿@media (min-width: 768px) {
+    .panel-body {
+        max-width: 730px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}

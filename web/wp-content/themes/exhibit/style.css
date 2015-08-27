@@ -1,0 +1,66 @@
+/*
+ Theme Name:   Exhibit
+ Theme URI:    http://www.generatepress.com/exhibit/
+ Description:  Exhibit is a GeneratePress child theme. Using GeneratePress you can alter the child theme to your taste in minutes. Exhibit is mobile responsive, W3C Markup Validated, Schema.org integrated, search engine friendly, cross browser compatible and 100% translatable. Available in English, German, Spanish, Russian and French! See more about GeneratePress here: http://generatepress.com
+ Author:       Thomas Usborne
+ Author URI:   http://edge22.com
+ Template:     generatepress
+ Version:      0.9
+ Tags: two-columns, three-columns, one-column, right-sidebar, left-sidebar, fluid-layout, fixed-layout, responsive-layout, custom-header, custom-background, custom-menu, custom-colors, sticky-post, threaded-comments, translation-ready, featured-images, theme-options, light, white, dark, black, blue, brown, gray, green, orange, pink, purple, red, silver, tan, yellow
+
+ Exhibit, Copyright 2015 Thomas Usborne
+ Exhibit is distributed under the terms of the GNU GPL
+
+ Exhibit is a child theme of GeneratePress
+ 
+ It's not recommended to add CSS to this file, as it will be lost if you ever update this child theme.
+ Instead, use a Custom CSS plugin.
+ 
+ */
+
+.post-image {
+	margin-top: 0;
+	margin-bottom: 1.5em;
+} 
+
+.admin-bar.stickynav.nav-below-header #site-navigation,
+.admin-bar.stickynav.nav-above-header #site-navigation,
+.admin-bar.nav-below-header #site-navigation,
+.admin-bar.nav-above-header #site-navigation {
+	top: 32px;
+}
+.stickynav.nav-below-header #site-navigation,
+.stickynav.nav-above-header #site-navigation {
+	border-top: 0 none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	max-width: 100%;
+	z-index: 100;
+	opacity: .8;
+	-webkit-transition:opacity 0.2s ease-in-out;
+	-moz-transition:opacity 0.2s ease-in-out;
+	-o-transition:opacity 0.2s ease-in-out;
+	transition:opacity 0.2s ease-in-out;
+}
+.stickynav.nav-below-header #site-navigation:hover,
+.stickynav.nav-above-header #site-navigation:hover {
+	opacity: 1;
+	-webkit-transition:opacity 0.2s ease-in-out;
+	-moz-transition:opacity 0.2s ease-in-out;
+	-o-transition:opacity 0.2s ease-in-out;
+	transition:opacity 0.2s ease-in-out;
+}
+
+.nav-above-header #site-navigation {
+	border-top: 0 none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	max-width: 100%;
+	z-index: 100;
+	-webkit-transition:opacity 0.2s ease-in-out;
+	-moz-transition:opacity 0.2s ease-in-out;
+	-o-transition:opacity 0.2s ease-in-out;
+	transition:opacity 0.2s ease-in-out;
+}

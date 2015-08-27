@@ -1,0 +1,60 @@
+Changelog Legend:
+----
+
+[+] = Added
+[*] = Changed
+[^] = Moved
+[=] = No Changes
+[x] = Deleted
+[!] = Bugs
+
+----
+
+(6/6/2015) - 0.9
+[*] Fix undefined index errors
+
+----
+
+() - 0.8
+[!] Fixed sticky nav jumping when navigation is below header
+
+----
+(1/6/2015) - 0.7
+[+] Enable navigation search by default
+[*] Sticky navigation stays contained when navigation is contained
+
+----
+
+(11/17/2014) - 0.6
+[*] Change default fonts to inherit from body
+[!] Fix double post image when using Blog addon
+
+----
+
+(9/4/2014) - 0.5
+[!] Remove php notice caused by newest version of parent theme
+[!] Fix sticky nav disappearing behind admin bar
+
+----
+
+(8/30/2014) - 0.4
+[!] Fixed jumping issue with navigation above header
+
+----
+
+(8/24/2014) - 0.3
+[!] Fixed bug dealing with sticky navigation
+[+] Added transition to the navigation
+[+] Instructions added to style.css and functions.php
+[+] Added new defaults to filter
+
+----
+
+(8/10/2014) - 0.2
+[+] New form color defaults added
+[!] Fixed content page header in post excerpt 
+
+----
+
+(07/19/2014) - 0.1
+Initial Release

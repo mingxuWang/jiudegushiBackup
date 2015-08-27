@@ -1,0 +1,375 @@
+﻿@model duyuwei.Areas.biyesheng.Models.ziyuan
+@using duyuwei.Areas.biyesheng.Models
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>2016届毕业生生源统计</title>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/biyesheng/Content/index.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function search() {
+            $.ajax({
+                method: "POST",
+                url: "/biyesheng/Index/Search",
+                data: { syszdSearch: $("#syszdSearch").val() }
+            })
+            .done(function (json) {
+                var htmlStr = "";
+                for (var i = 0; i < json.length; i++) {
+                    htmlStr = htmlStr + "<option value=" + json[i].xzqhdm + ">" + json[i].xzqhmc + "</option>"
+                }
+                $("#syszddmSelect").html(htmlStr);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="maindiv">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">@Model.xm</h3>
+            </div>
+            <div class="panel-body">
+                <form method="post">
+                    <input type="hidden" name="yxdm" value="@Model.yxdm" />
+                    <input type="hidden" name="yxmc" value="@Model.yxmc" />
+                    <div class="form-group">
+                        <label>考生号</label>
+                        <input type="text" class="form-control" placeholder="考生号" readonly="readonly" value="@Model.ksh" name="ksh">
+                    </div>
+
+                    <div class="form-group">
+                        <label>原考生号</label>
+                        <input type="text" class="form-control" placeholder="原考生号" readonly="readonly" value="@Model.yksh" name="yksh">
+                    </div>
+                    <div class="form-group">
+                        <label>身份证号</label>
+                        <span class="label label-warning">请核对</span>
+                        <input type="text" class="form-control" placeholder="身份证号" readonly="readonly" value="@Model.sfzh" name="sfzh">
+                    </div>
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <span class="label label-warning">请核对，如需改名需要递交申请</span>
+                        <input type="text" class="form-control" placeholder="姓名" readonly="readonly" value="@Model.xm" name="xm">
+                    </div>
+                    <input type="hidden" name="xbdm" value="@Model.xbdm" />@*性别代码*@
+                    <div class="form-group">
+                        <label>性别</label>
+                        <input type="text" class="form-control" placeholder="性别" readonly="readonly" value="@Model.xb" name="xb">
+                    </div>
+                    <input type="hidden" name="mzdm" value="@Model.mzdm" />@*民族代码*@
+                    <div class="form-group">
+                        <label>民族</label>
+                        <input type="text" class="form-control" placeholder="民族" readonly="readonly" value="@Model.mz" name="mz">
+                    </div>
+                    <div class="form-group">
+                        <label>政治面貌</label>
+                        <span class="label label-danger">请注意修改，原有信息为入学前信息</span>
+                        <select name="zzmmdm" class="form-control">
+                            @foreach (dm item in @ViewBag.zzmm)
+                            {
+                                if (item.value == Model.zzmm)
+                                {
+                                <option value="@item.code" selected="selected">@item.value</option>
+                                }
+                                else
+                                {
+                                <option value="@item.code">@item.value</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <input type="hidden" name="xldm" value="@Model.xldm" />@*学历代码*@
+                    <div class="form-group">
+                        <label>学制</label>
+                        <input type="text" class="form-control" placeholder="学制" readonly="readonly" value="@Model.xz" name="xz">
+                    </div>
+                    <input type="hidden" name="zydm" value="@Model.zydm" />@*专业代码*@
+                    <div class="form-group">
+                        <label>学历</label>
+                        <input type="text" class="form-control" placeholder="学历" readonly="readonly" value="@Model.xl" name="xl">
+                    </div>
+                    <div class="form-group">
+                        <label>专业</label>
+                        <input type="text" class="form-control" placeholder="专业" readonly="readonly" value="@Model.zy" name="zy">
+                    </div>
+                    <div class="form-group">
+                        <label>专业方向</label>
+                        <input type="text" class="form-control" placeholder="专业方向" readonly="readonly" value="@Model.zyfx" name="zyfx">
+                    </div>
+                    <div class="form-group">
+                        <label>培养方式</label>
+                        <span class="label label-danger">请选择</span>
+                        <select name="pyfsdm" class="form-control">
+                            @foreach (dm item in @ViewBag.pyfs)
+                            {
+                                if (item.value == Model.pyfs)
+                                {
+                                <option value="@item.code" selected="selected">@item.value</option>
+                                }
+                                else
+                                {
+                                <option value="@item.code">@item.value</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>生源所在地</label>
+                        <span class="label label-danger">在下方搜索所在区/县，然后在下方列表中选中</span>
+                        <div class="form-group">
+                            <input id="syszdSearch" type="text" class="form-control" placeholder="输入生源所在地，然后搜索">
+                            <button type="button" onclick="search()" class="btn btn-info">点击搜索</button>
+                        </div>
+                        <span class="label label-danger">格式只能为省市区/省县，误选其他格式</span>
+                        <select id="syszddmSelect" name="syszddm" multiple class="form-control">
+                            <option selected="selected" value="@Model.syszddm">@Model.syszd</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>城乡生源</label>
+                        <select name="cxsy" class="form-control">
+
+                            @if (Model.cxsy == "1")
+                            {
+                                <option value="1" selected="selected">城镇</option>
+                                <option value="2">农村</option>
+                            }
+                            else
+                            {
+                                <option value="1">城镇</option>
+                                <option value="2" selected="selected">农村</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>学籍变动</label>
+                        <select name="xjbddm" class="form-control">
+                            @foreach (dm item in ViewBag.xjbd)
+                            {
+                                if (item.code == Model.xjbddm)
+                                {
+                                <option value="@item.code" selected="selected">@item.value</option>
+                                }
+                                else
+                                {
+                                <option value="@item.code">@item.value</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>综合测评档次</label>
+                        <select name="zhcpdc" class="form-control">
+
+                            @if (Model.zhcpdc == "4")
+                            {
+                                <option value="1">优</option>
+                                <option value="2">良</option>
+                                <option value="3">中</option>
+                                <option value="4" selected="selected">可</option>
+                            }
+                            else if (Model.zhcpdc == "3")
+                            {
+                                <option value="1">优</option>
+                                <option value="2">良</option>
+                                <option value="3" selected="selected">中</option>
+                                <option value="4">可</option>
+                            }
+                            else if (Model.zhcpdc == "2")
+                            {
+                                <option value="1">优</option>
+                                <option value="2" selected="selected">良</option>
+                                <option value="3">中</option>
+                                <option value="4">可</option>
+                            }
+                            else
+                            {
+                                <option value="1" selected="selected">优</option>
+                                <option value="2">良</option>
+                                <option value="3">中</option>
+                                <option value="4">可</option>
+                            }
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>在校担任职务</label>
+                        <select name="zxrzdm" class="form-control">
+
+                            @if (Model.zxrzdm == "1")
+                            {
+                                <option value="0">无</option>
+                                <option value="1" selected="selected">学生干部</option>
+                                <option value="2">学生助理</option>
+                                <option value="3">社团干部</option>
+                            }
+                            else if (Model.zxrzdm == "2")
+                            {
+                                <option value="0">无</option>
+                                <option value="1">学生干部</option>
+                                <option value="2" selected="selected">学生助理</option>
+                                <option value="3">社团干部</option>
+                            }
+                            else if (Model.zxrzdm == "3")
+                            {
+                                <option value="0">无</option>
+                                <option value="1">学生干部</option>
+                                <option value="2">学生助理</option>
+                                <option value="3" selected="selected">社团干部</option>
+                            }
+                            else
+                            {
+                                <option value="0" selected="selected">无</option>
+                                <option value="1">学生干部</option>
+                                <option value="2">学生助理</option>
+                                <option value="3">社团干部</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>独生子女标志</label>
+                        <select name="dsznbz" class="form-control">
+
+                            @if (Model.dsznbz == "1")
+                            {
+                                <option value="1" selected="selected">是</option>
+                                <option value="2">否</option>
+                            }
+                            else
+                            {
+                                <option value="1">是</option>
+                                <option value="2" selected="selected">否</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>困难生类别</label>
+                        <select name="knslbdm" class="form-control">
+                            @foreach (dm item in ViewBag.knslbdm)
+                            {
+                                if (item.code == Model.knslbdm)
+                                {
+                                <option value="@item.code" selected="selected">@item.value</option>
+                                }
+                                else
+                                {
+                                <option value="@item.code">@item.value</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>入学时间</label>
+                        <input type="text" class="form-control" placeholder="入学时间" readonly="readonly" value="@Model.rxsj" name="rxsj">
+                    </div>
+                    <div class="form-group">
+                        <label>所在院系</label>
+                        <input type="text" class="form-control" placeholder="所在院系" readonly="readonly" value="@Model.szyx" name="szyx">
+                    </div>
+                    <div class="form-group">
+                        <label>所在班级</label>
+                        <input type="text" class="form-control" placeholder="所在班级" readonly="readonly" value="@Model.szbj" name="szbj">
+                    </div>
+                    <div class="form-group">
+                        <label>学号</label>
+                        <input type="text" class="form-control" placeholder="学号" readonly="readonly" value="@Model.xh" name="xh">
+                    </div>
+                    <div class="form-group">
+                        <label>入学前档案所在单位</label>
+                        <span class="label label-success">例：河北省魏县一中</span>
+                        <input type="text" class="form-control" placeholder="入学前档案所在单位" value="@Model.rxqdaszdw" name="rxqdaszdw">
+                    </div>
+                    <div class="form-group">
+                        <label>档案是否转入学校(大学)</label>
+                        <select name="dasfzrxx" class="form-control">
+
+                            @if (Model.dasfzrxx == "1")
+                            {
+                                <option value="1" selected="selected">是</option>
+                                <option value="0">否</option>
+                            }
+                            else
+                            {
+                                <option value="1">是</option>
+                                <option value="0" selected="selected">否</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>入学前户口所在地派出所</label>
+                        <input type="text" class="form-control" placeholder="入学前户口所在地派出所" value="@Model.rxqhkszdpc" name="rxqhkszdpc">
+                    </div>
+                    <div class="form-group">
+                        <label>户口是否转入学校(大学)</label>
+                        <select name="hksfzrxx" class="form-control">
+
+                            @if (Model.hksfzrxx == "1")
+                            {
+                                <option value="1" selected="selected">是</option>
+                                <option value="0">否</option>
+                            }
+                            else
+                            {
+                                <option value="1">是</option>
+                                <option value="0" selected="selected">否</option>
+                            }
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>联系电话</label>
+                        <span class="label label-success">学生本人联系方式</span>
+                        <input type="text" class="form-control" placeholder="联系电话" value="@Model.mobilephon" name="mobilephon">
+                    </div>
+                    <div class="form-group">
+                        <label>QQ号</label>
+                        <input type="text" class="form-control" placeholder="QQ号" value="@Model.qq" name="qq">
+                    </div>
+                    <div class="form-group">
+                        <label>电子邮箱</label>
+                        <input type="email" class="form-control" placeholder="电子邮箱" value="@Model.email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label>家庭地址</label>
+                        <span class="label label-success">详细到门牌号或行政村</span>
+                        <input type="text" class="form-control" placeholder="家庭住址" value="@Model.jtdz" name="jtdz">
+                    </div>
+                    <div class="form-group">
+                        <label>家庭电话</label>
+                        <span class="label label-success">最好为固定电话或父母电话</span>
+                        <input type="text" class="form-control" placeholder="家庭电话" value="@Model.jtdh" name="jtdh">
+                    </div>
+                    <div class="form-group">
+                        <label>家庭邮编</label>
+                        <input type="text" class="form-control" placeholder="家庭邮编" value="@Model.jtyb" name="jtyb">
+                    </div>
+                    <div class="form-group">
+                        <label>检录册页码</label>
+                        <a href="http://ziyuan.hebeu.edu.cn/biyesheng/download.html" target="_Blank"><span class="label label-primary">点击查看填写指南</span></a>
+                        <input type="text" class="form-control" placeholder="检录册页码" value="@Model.bz2" name="bz2">
+                    </div>
+                    <input type="hidden" name="csrq" value="@Model.csrq" />@*出生日期（在要求中没有，这里用作密码）*@
+                    <input type="hidden" name="sfslbdm" value="@Model.sfslbdm" />@*未知（在要求中没有，这里用作密码）*@
+                    <button type="submit" class="btn btn-success btn-lg btn-block">保存</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
